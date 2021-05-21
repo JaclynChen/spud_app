@@ -26,6 +26,8 @@ class _ToggleGameState extends State<ToggleGame> {
 
               Text('Number of Players: $numPlayers'),
               TextField(
+
+                onChanged: (value) => setState(() => this.numPlayers = int.parse(value)),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Enter number of players'
