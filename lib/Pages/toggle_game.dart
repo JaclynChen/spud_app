@@ -8,7 +8,8 @@ class ToggleGame extends StatefulWidget {
 class _ToggleGameState extends State<ToggleGame> {
 
   var numPlayers =0;
-  var numGhosts = 1;
+  var numGhosts = 0;
+  var counter = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,14 @@ class _ToggleGameState extends State<ToggleGame> {
       body: Column(
         children: <Widget> [
           Text('toggle game screen'),
-          Text('Number of Players: $numPlayers'),
+
+              Text('Number of Players: $numPlayers'),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter number of players'
+                ),
+              ),
           Text('Number of Ghosts: $numGhosts'),
           FlatButton(
             onPressed: (){
