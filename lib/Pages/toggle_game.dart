@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spudapp/Pages/view_number.dart';
 
 class ToggleGame extends StatefulWidget {
   @override
@@ -7,9 +8,21 @@ class ToggleGame extends StatefulWidget {
 
 class _ToggleGameState extends State<ToggleGame> {
 
-  var numPlayers =0;
-  var numGhosts = 0;
-  var counter = 0;
+  var numPlayers=0;
+  var numGhosts=0;
+  var counter=0;
+
+  //var numPlayers;
+  //var numGhosts;
+ // var counter;
+
+ // _ToggleGameState(this.numPlayers, this.numGhosts, this.counter);
+
+ //int get numOfPlayers => numPlayers;
+
+  TextEditingController textFieldControllerPlayers = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,23 +39,57 @@ class _ToggleGameState extends State<ToggleGame> {
 
               Text('Number of Players: $numPlayers'),
               TextField(
-
+                controller: textFieldControllerPlayers,
                 onChanged: (value) => setState(() => this.numPlayers = int.parse(value)),
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                  ),
                   hintText: 'Enter number of players'
                 ),
               ),
           Text('Number of Ghosts: $numGhosts'),
+          TextField(
+
+            onChanged: (value) => setState(() => this.numGhosts = int.parse(value)),
+            decoration: InputDecoration(
+                border: OutlineInputBorder(
+                ),
+                hintText: 'Enter number of ghosts'
+            ),
+          ),
+
           FlatButton(
             onPressed: (){
-              Navigator.pushNamed(context, '/viewNumber');
+              _sendDataToViewNumber(context);
+
+
+
+             /* Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ViewNumber(text: 'numGhosts: $numGhosts'),
+                )
+              );
+              //Navigator.pushNamed(context, '/viewNumber');*/
             },
             child: Text('Start Game'),
           ),
         ],
       ),
     );
+
+
+  }
+
+  void _sendDataToViewNumber(BuildContext context){
+    String textToSend = textFieldControllerPlayers.text;
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ViewNumber(numPlayers: int.parse(textToSend),),
+      )
+    );
+
   }
 }
 
