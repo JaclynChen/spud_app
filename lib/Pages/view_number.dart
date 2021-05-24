@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class ViewNumber extends StatefulWidget {
 
   final int numPlayers;
+  final int numGhosts;
 
-  ViewNumber({Key key, @required this.numPlayers}) : super(key: key);
+  ViewNumber({Key key, @required this.numPlayers, @required this.numGhosts}) : super(key: key);
 
 
   @override
@@ -26,7 +27,7 @@ class _ViewNumberState extends State<ViewNumber> {
       body: Column(
         children: [
           Text('view number screen'),
-          Text(widget.numPlayers.toString()),
+          Text((widget.numGhosts + widget.numPlayers).toString()),
         ],
       ),
     );

@@ -21,6 +21,7 @@ class _ToggleGameState extends State<ToggleGame> {
  //int get numOfPlayers => numPlayers;
 
   TextEditingController textFieldControllerPlayers = TextEditingController();
+  TextEditingController textFieldControllerGhosts = TextEditingController();
 
 
   @override
@@ -49,7 +50,7 @@ class _ToggleGameState extends State<ToggleGame> {
               ),
           Text('Number of Ghosts: $numGhosts'),
           TextField(
-
+            controller: textFieldControllerGhosts,
             onChanged: (value) => setState(() => this.numGhosts = int.parse(value)),
             decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -82,11 +83,12 @@ class _ToggleGameState extends State<ToggleGame> {
   }
 
   void _sendDataToViewNumber(BuildContext context){
-    String textToSend = textFieldControllerPlayers.text;
+    String players = textFieldControllerPlayers.text;
+    String ghosts = textFieldControllerGhosts.text;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ViewNumber(numPlayers: int.parse(textToSend),),
+        builder: (context) => ViewNumber(numPlayers: int.parse(players),numGhosts: int.parse(ghosts),),
       )
     );
 
