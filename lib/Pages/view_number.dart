@@ -24,9 +24,11 @@ class _ViewNumberState extends State<ViewNumber> {
   int totalNumber;
   _ViewNumberState({this.numPlayers, this.numGhosts,});
 
+
   var listPlayers = new List();
   var listNumbers = new List();
   TextEditingController textFieldControllerName = TextEditingController();
+  String number ="";
 
 
   @override
@@ -57,6 +59,16 @@ class _ViewNumberState extends State<ViewNumber> {
             child: Text('Enter'),
           ),
 
+          FlatButton(
+            onPressed: (){
+              _displayNumber();
+
+            },
+            child: Text('Reveal Number'),
+          ),
+
+          Text('Your Number $number'),
+
         ],
       ),
     );
@@ -76,9 +88,12 @@ class _ViewNumberState extends State<ViewNumber> {
 
 
     listPlayers.add(new Player(playerName: name, playerNumber: randomNumber, letters: ""));
-    countPlayerIndex++;
+
 
     print(listPlayers[0].playerName);
+    print(listPlayers[0].playerNumber);
+    print(listPlayers[0].letters);
+
 
   }
 
@@ -92,6 +107,17 @@ class _ViewNumberState extends State<ViewNumber> {
 
       print(listNumbers);
 
+  }
+
+  void _displayNumber(){
+
+    //print(number);
+    setState(() {
+      number = (listPlayers[countPlayerIndex].playerNumber).toString();
+
+    });
+
+    //countPlayerIndex++;
   }
 
 
