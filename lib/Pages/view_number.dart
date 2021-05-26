@@ -21,7 +21,7 @@ class _ViewNumberState extends State<ViewNumber> {
 
   int numPlayers;
   int numGhosts;
-  int totalNumber;
+  //int totalNumber;
   _ViewNumberState({this.numPlayers, this.numGhosts,});
 
 
@@ -69,6 +69,15 @@ class _ViewNumberState extends State<ViewNumber> {
 
           Text('Your Number $number'),
 
+          FlatButton(
+            onPressed: (){
+              _lockIn();
+
+            },
+            child: Text('Lock In'),
+          ),
+
+
         ],
       ),
     );
@@ -89,10 +98,11 @@ class _ViewNumberState extends State<ViewNumber> {
 
     listPlayers.add(new Player(playerName: name, playerNumber: randomNumber, letters: ""));
 
-
-    print(listPlayers[0].playerName);
-    print(listPlayers[0].playerNumber);
-    print(listPlayers[0].letters);
+    for(int j=0; j<listPlayers.length; j++ ) {
+      print(listPlayers[j].playerName);
+      print(listPlayers[j].playerNumber);
+      print(listPlayers[j].letters);
+    }
 
 
   }
@@ -117,7 +127,29 @@ class _ViewNumberState extends State<ViewNumber> {
 
     });
 
-    //countPlayerIndex++;
+
+  }
+
+
+  void _lockIn(){
+
+    setState(() {
+
+      textFieldControllerName.clear();
+      number = "";
+      countPlayerIndex++;
+
+      if(countPlayerIndex == numPlayers + numGhosts){
+
+
+
+      }
+
+
+    });
+
+
+
   }
 
 
