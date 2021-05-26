@@ -1,16 +1,21 @@
 class Player{
 
   String playerName;
-  var playerNumber;
+  int playerNumber;
   String letters;
 
-  Player(){
+  Player({
 
-    this.letters = "";
+    this.playerName = "Player1",
+    this.playerNumber,
+    this.letters = "",
 
 
-  }
+  });
 
 
 
 }
+
+
+Player player1 = Player(playerName: "Jaclyn", playerNumber: 6, letters: "");

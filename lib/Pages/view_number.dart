@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spudapp/Pages/player.dart';
 
 class ViewNumber extends StatefulWidget {
 
@@ -9,10 +10,22 @@ class ViewNumber extends StatefulWidget {
 
 
   @override
-  _ViewNumberState createState() => _ViewNumberState();
+  _ViewNumberState createState() => _ViewNumberState(numPlayers: this.numPlayers, numGhosts: this.numGhosts);
+
+
 }
 
 class _ViewNumberState extends State<ViewNumber> {
+
+  int countPlayerIndex;
+
+  int numPlayers;
+  int numGhosts;
+  int totalNumber;
+  _ViewNumberState({this.numPlayers, this.numGhosts,});
+
+  //var listPlayers = new List();
+  var listNumbers = new List();
 
 
   @override
@@ -27,11 +40,44 @@ class _ViewNumberState extends State<ViewNumber> {
       body: Column(
         children: [
           Text('view number screen'),
-          Text((widget.numGhosts + widget.numPlayers).toString()),
+          Text('Numbers generated between 1-' + (widget.numGhosts + widget.numPlayers).toString()),
         ],
       ),
     );
   }
+
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _createNumberList());
+  }
+
+/*
+  void _createPlayerObject(String name){
+
+    int countPlayerIndex = this.countPlayerIndex;
+    int randomNumber = listNumbers[countPlayerIndex];
+
+
+    listPlayers.add(new Player(playerName: name, playerNumber: randomNumber, letters: ""));
+
+
+
+  }*/
+
+  void _createNumberList(){
+
+      for(int i=0; i<numGhosts + numPlayers; i++) {
+        listNumbers.add(i+1);
+      }
+
+      listNumbers.shuffle();
+
+      print(listNumbers);
+
+  }
+
+
 }
 
 
