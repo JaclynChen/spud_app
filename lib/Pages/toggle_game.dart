@@ -63,15 +63,6 @@ class _ToggleGameState extends State<ToggleGame> {
             onPressed: (){
               _sendDataToViewNumber(context);
 
-
-
-             /* Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ViewNumber(text: 'numGhosts: $numGhosts'),
-                )
-              );
-              //Navigator.pushNamed(context, '/viewNumber');*/
             },
             child: Text('Start Game'),
           ),
