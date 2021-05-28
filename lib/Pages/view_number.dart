@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spudapp/Pages/displayLetters.dart';
 import 'package:spudapp/Pages/player.dart';
 
 class ViewNumber extends StatefulWidget {
@@ -12,16 +13,14 @@ class ViewNumber extends StatefulWidget {
   @override
   _ViewNumberState createState() => _ViewNumberState(numPlayers: this.numPlayers, numGhosts: this.numGhosts);
 
-
 }
 
 class _ViewNumberState extends State<ViewNumber> {
 
   int countPlayerIndex=0;
-
   int numPlayers;
   int numGhosts;
-  //int totalNumber;
+
   _ViewNumberState({this.numPlayers, this.numGhosts,});
 
 
@@ -139,9 +138,14 @@ class _ViewNumberState extends State<ViewNumber> {
       number = "";
       countPlayerIndex++;
 
-      if(countPlayerIndex == numPlayers + numGhosts){
+      if(countPlayerIndex == numPlayers){
 
-
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DisplayLetters(listPlayers: listPlayers,),
+            )
+        );
 
       }
 

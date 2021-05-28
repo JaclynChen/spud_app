@@ -12,14 +12,6 @@ class _ToggleGameState extends State<ToggleGame> {
   var numGhosts=0;
   var counter=0;
 
-  //var numPlayers;
-  //var numGhosts;
- // var counter;
-
- // _ToggleGameState(this.numPlayers, this.numGhosts, this.counter);
-
- //int get numOfPlayers => numPlayers;
-
   TextEditingController textFieldControllerPlayers = TextEditingController();
   TextEditingController textFieldControllerGhosts = TextEditingController();
 

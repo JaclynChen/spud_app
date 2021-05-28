@@ -24,8 +24,6 @@ class _HomeState extends State<Home> {
                 },
                 child: Text('Rules'),
               ),
-
-
             ],
           )
       ),

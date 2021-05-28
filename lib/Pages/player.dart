@@ -10,12 +10,10 @@ class Player{
     this.playerNumber,
     this.letters = "",
 
-
   });
-
 
 
 }
 
 
-//Player player1 = Player(playerName: "Jaclyn", playerNumber: 6, letters: "");
+
