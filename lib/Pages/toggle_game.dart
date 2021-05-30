@@ -28,9 +28,9 @@ class _ToggleGameState extends State<ToggleGame> {
       ),
       body: Column(
         children: <Widget> [
-          Text('toggle game screen'),
-
-              Text('Number of Players: $numPlayers'),
+              Container(
+                  padding: EdgeInsets.fromLTRB(0, 25, 0, 10),
+                  child: Text('Number of Players: $numPlayers')),
               TextField(
                 controller: textFieldControllerPlayers,
                 onChanged: (value) => setState(() => this.numPlayers = int.parse(value)),
@@ -40,7 +40,10 @@ class _ToggleGameState extends State<ToggleGame> {
                   hintText: 'Enter number of players'
                 ),
               ),
-          Text('Number of Ghosts: $numGhosts'),
+
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 25, 0, 10),
+            child: Text('Number of Ghosts: $numGhosts'),),
           TextField(
             controller: textFieldControllerGhosts,
             onChanged: (value) => setState(() => this.numGhosts = int.parse(value)),

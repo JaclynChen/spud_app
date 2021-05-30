@@ -41,32 +41,32 @@ class _ViewNumberState extends State<ViewNumber> {
       ),
       body: Column(
         children: [
-          Text('view number screen'),
-          Text('Numbers generated between 1-' + (widget.numGhosts + widget.numPlayers).toString()),
-          TextField(
-            controller: textFieldControllerName,
-            decoration: InputDecoration(
-                border: OutlineInputBorder(
-                ),
-                hintText: 'Enter Player Name'
+          //Text('Numbers generated between 1-' + (widget.numGhosts + widget.numPlayers).toString()),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 25, 0, 15),
+            child: TextField(
+              controller: textFieldControllerName,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                  ),
+                  hintText: 'Enter Player Name'
+              ),
             ),
           ),
           FlatButton(
             onPressed: (){
               _createPlayerObject(textFieldControllerName.text);
-            },
-            child: Text('Enter'),
-          ),
-
-          FlatButton(
-            onPressed: (){
               _displayNumber();
-
             },
             child: Text('Reveal Number'),
           ),
 
-          Text('Your Number $number'),
+          Text('Your Number: $number',
+            style: TextStyle(
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2.0,
+            color: const Color(0xFFF29D52), )),
 
           FlatButton(
             onPressed: (){
