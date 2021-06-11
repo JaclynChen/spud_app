@@ -6,7 +6,7 @@ class Rules extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: const Color(0xFFE8804C),
         title: Text('Rules'),
         centerTitle: true,
         elevation: 0,

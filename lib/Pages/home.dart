@@ -18,24 +18,43 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.fromLTRB(0, 125, 0, 30),
                   child: Text('Spud',
                   style: TextStyle(
-                    fontSize: 50.0,
+                    fontSize: 70.0,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2.0,
-                    color: const Color(0xFFF29D52),
+                    color: const Color(0xFFE8804C),
 
                   ),),
                 ),
-                FlatButton(
-                  onPressed: (){
-                    Navigator.pushNamed(context, '/toggle');
-                  },
-                  child: Text('Create Game'),
+                Container(
+                  padding:EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  width: 130,
+                  height: 65,
+                  child: FlatButton(
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/toggle');
+                    },
+                    color: const Color(0xFF30C3CD),
+                    child: Text('Create Game',
+                    style: TextStyle(
+                      color: const Color(0xFFFFFFFF),
+                    ),
+                    ),
+                  ),
                 ),
-                FlatButton(
-                  onPressed: (){
-                    Navigator.pushNamed(context, '/rules');
-                  },
-                  child: Text('Rules'),
+                Container(
+                  padding:EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  width: 130,
+                  height: 65,
+                  child: FlatButton(
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/rules');
+                    },
+                    color: const Color(0xFF30C3CD),
+                    child: Text('Rules',
+                      style: TextStyle(
+                        color: const Color(0xFFFFFFFF),
+                      ),),
+                  ),
                 ),
               ],
             ),

@@ -34,50 +34,76 @@ class _ViewNumberState extends State<ViewNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: const Color(0xFFE8804C),
         title: Text('View Number'),
         centerTitle: true,
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          //Text('Numbers generated between 1-' + (widget.numGhosts + widget.numPlayers).toString()),
-          Container(
-            padding: EdgeInsets.fromLTRB(0, 25, 0, 15),
-            child: TextField(
-              controller: textFieldControllerName,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                  ),
-                  hintText: 'Enter Player Name'
+      body: Center(
+        child: Column(
+          children: [
+            //Text('Numbers generated between 1-' + (widget.numGhosts + widget.numPlayers).toString()),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 25, 0, 15),
+              width: 300,
+              child: TextField(
+                controller: textFieldControllerName,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                    ),
+                    hintText: 'Enter Player Name'
+                ),
               ),
             ),
-          ),
-          FlatButton(
-            onPressed: (){
-              _createPlayerObject(textFieldControllerName.text);
-              _displayNumber();
-            },
-            child: Text('Reveal Number'),
-          ),
+            FlatButton(
+              onPressed: (){
+                _createPlayerObject(textFieldControllerName.text);
+                _displayNumber();
+              },
+              color: const Color(0xFF30C3CD),
+              child: Text('Reveal Number',
+                style: TextStyle(
+                  color: const Color(0xFFFFFFFF),
+                ),
+              ),
+            ),
 
-          Text('Your Number: $number',
-            style: TextStyle(
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2.0,
-            color: const Color(0xFFF29D52), )),
+            Container(
+              padding:EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Text('Your Number:',
+                style: TextStyle(
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+                color: const Color(0xFFF29D52), )),
+            ),
 
-          FlatButton(
-            onPressed: (){
-              _lockIn();
+            Container(
+              padding:EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Text('$number',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: const Color(0xFFF29D52), )),
+            ),
 
-            },
-            child: Text('Lock In'),
-          ),
+            FlatButton(
+              onPressed: (){
+                _lockIn();
+
+              },
+              color: const Color(0xFF30C3CD),
+              child: Text('Lock In',
+                style: TextStyle(
+                  color: const Color(0xFFFFFFFF),
+                ),
+              ),
+            ),
 
 
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -25,8 +25,8 @@ class _DisplayLettersState extends State<DisplayLetters> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
-        title: Text('Display Letters'),
+        backgroundColor: const Color(0xFFE8804C),
+        title: Text('Display Players'),
         centerTitle: true,
         elevation: 0,
       ),
